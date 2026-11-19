@@ -1,0 +1,296 @@
+{
+  "course": {
+    "slug": "ohjelmallinen-ajattelu",
+    "title": "Ohjelmallinen ajattelu — arvioitavat tehtävät AT1–AT3",
+    "language": "fi",
+    "golden_sample": "~/Kurssit/ai-perusteet/",
+    "forbidden_terms": [
+      "Business College Helsinki",
+      "BC Helsinki",
+      "bc.fi",
+      "AI-resilientti",
+      "AI-resilient",
+      "LLM-resistenssi",
+      "LLM-resistentti",
+      "Rasmus",
+      "Linnea",
+      "Wilhelm",
+      "Sune",
+      "Alfred",
+      "Börje"
+    ]
+  },
+  "modules": [
+    {
+      "id": "module-2",
+      "title": "Viikko 2 — Ongelman pilkkominen",
+      "lessons": [
+        "lesson-06"
+      ]
+    },
+    {
+      "id": "module-6",
+      "title": "Viikko 6 — Ajattelusta koodiin",
+      "lessons": [
+        "lesson-18"
+      ]
+    },
+    {
+      "id": "module-8",
+      "title": "Viikko 8 — Ohjelmointikielet käytännössä: JavaScript ja C#",
+      "lessons": [
+        "lesson-24"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson-06",
+      "title": "IT-tehtävän pilkkominen (AT1)",
+      "type": "assessment",
+      "objectives": [
+        "Osaat tunnistaa todellisesta arkisesta tai IT-tilanteesta päätehtävän ja sanoa sen tavoitteen yhdellä virkkeellä: mikä on totta, kun tehtävä on valmis.",
+        "Osaat pilkkoa päätehtävän 4–8 osatehtäväksi, joilla jokaisella on oma, päätavoitteesta erottuva osatavoite.",
+        "Osaat järjestää osatehtävät ja nimetä vähintään yhden riippuvuuden sekä tunnistaa, mitkä osatehtävät ovat järjestyksen suhteen vapaita.",
+        "Osaat kertoa 3–5 virkkeellä, mikä pilkkomisessa oli vaikeinta ja mitä muutit, kun joku toinen (pari, 24 tunnin tauko tai LLM-sparraus) luki pilkkomisesi."
+      ],
+      "bloom": [
+        "ymmärtää",
+        "soveltaa"
+      ],
+      "concepts": [],
+      "builds_on": {
+        "lesson-01": [
+          "kirjaimellinen suorittaja",
+          "monitulkintaisuus on ohjeessa"
+        ],
+        "lesson-04": [
+          "pilkkominen",
+          "päätehtävä",
+          "osatehtävä",
+          "osatavoite",
+          "tavoite"
+        ],
+        "lesson-05": [
+          "järjestys",
+          "riippuvuus",
+          "vapaa osatehtävä",
+          "rinnakkainen"
+        ]
+      },
+      "tasks": [
+        {
+          "id": "AT1",
+          "class": "MANDATORY",
+          "assessable": true,
+          "ai_resilient": true
+        },
+        {
+          "id": "2.1",
+          "class": "MANDATORY",
+          "assessable": false,
+          "ai_resilient": true
+        },
+        {
+          "id": "2.2",
+          "class": "MANDATORY",
+          "assessable": false,
+          "ai_resilient": true
+        },
+        {
+          "id": "2.3",
+          "class": "DEEPENING",
+          "assessable": false,
+          "ai_resilient": true
+        },
+        {
+          "id": "2.4",
+          "class": "DEEPENING",
+          "assessable": false,
+          "ai_resilient": true
+        },
+        {
+          "id": "2.5",
+          "class": "DEEPENING",
+          "assessable": false,
+          "ai_resilient": true
+        }
+      ],
+      "rubric": "viikko-02/opettaja/rubriikki-AT1.md"
+    },
+    {
+      "id": "lesson-18",
+      "title": "Pseudokoodin testaaminen: kuivaharjoittelu ja virheiden löytäminen (AT2)",
+      "type": "assessment",
+      "objectives": [
+        "Osaat kirjoittaa 10–20 rivin pseudokoodin itse valitsemastasi pienestä prosessista kurssin avainsanoilla (SET, READ, WRITE, IF/ELSE/ENDIF, WHILE/ENDWHILE, FOR/ENDFOR) niin, että mukana on vähintään yksi ehto ja yksi toisto.",
+        "Osaat nimetä muuttujat niin, että nimi kertoo seuraavalle lukijalle, mitä arvoa muuttuja sisältää.",
+        "Osaat kuivaharjoitella pseudokoodin jäljitystaulukolla rivi riviltä yhdellä normaalilla ja yhdellä hankalalla syötteellä.",
+        "Osaat osoittaa jäljityksestä rivin, jolla toteutunut tuloste eroaa odotetusta ensimmäisen kerran, nimetä bugin yleiskielellä ja kuvata korjauksen — tai perustella jäljityksellä, että hankala syöte toimi.",
+        "Osaat selittää viidellä virkkeellä yleiskielellä, mitä pseudokoodisi tekee ja mitä jäljitys paljasti."
+      ],
+      "bloom": [
+        "ymmärtää",
+        "soveltaa"
+      ],
+      "concepts": [],
+      "builds_on": {
+        "lesson-01": [
+          "kirjaimellinen robotti"
+        ],
+        "lesson-13": [
+          "järjestys"
+        ],
+        "lesson-14": [
+          "ehto",
+          "if-then-else"
+        ],
+        "lesson-15": [
+          "toisto",
+          "repeat until",
+          "for each"
+        ],
+        "lesson-16": [
+          "pseudokoodi",
+          "avainsana",
+          "sisennys",
+          "lohko"
+        ],
+        "lesson-17": [
+          "muuttuja",
+          "arvo",
+          "syöte",
+          "käsittely",
+          "tuloste"
+        ]
+      },
+      "tasks": [
+        {
+          "id": "AT2",
+          "class": "MANDATORY",
+          "assessable": true,
+          "ai_resilient": true
+        },
+        {
+          "id": "6.1",
+          "class": "MANDATORY",
+          "assessable": false,
+          "ai_resilient": true
+        },
+        {
+          "id": "6.2",
+          "class": "DEEPENING",
+          "assessable": false,
+          "ai_resilient": false
+        },
+        {
+          "id": "6.3",
+          "class": "DEEPENING",
+          "assessable": false,
+          "ai_resilient": true
+        },
+        {
+          "id": "6.4",
+          "class": "DEEPENING",
+          "assessable": false,
+          "ai_resilient": true
+        }
+      ],
+      "rubric": "viikko-06/opettaja/rubriikki-AT2.md"
+    },
+    {
+      "id": "lesson-24",
+      "title": "Testaa, korjaa yksi bugi, esitä (AT3)",
+      "type": "assessment",
+      "objectives": [
+        "Osaat valita omasta viikon 6 pseudokoodistasi sopivan kokoisen palan ja kääntää sen 10–25 rivin toimivaksi JavaScript- tai C#-ohjelmaksi.",
+        "Osaat ajaa ohjelman kahdella eri lähtöarvolla, verrata tulostetta ennusteeseesi ja dokumentoida molemmat ajot kuvakaappauksella.",
+        "Osaat lukea konsolin tai kääntäjän virheilmoituksen, nimetä yhden bugin yleiskielellä ja kuvata sen yhden rivin korjauksen.",
+        "Osaat esittää ohjelmasi 2 minuutissa neljällä kohdalla: mitä se tekee, miten se toimii, mikä meni pieleen, miten korjasit sen."
+      ],
+      "bloom": [
+        "soveltaa",
+        "arvioida"
+      ],
+      "concepts": [],
+      "builds_on": {
+        "lesson-12": [
+          "vertaispalaute",
+          "iteraatio"
+        ],
+        "lesson-18": [
+          "jäljitys",
+          "bugi",
+          "odotettu tuloste",
+          "toteutunut tuloste"
+        ],
+        "lesson-20": [
+          "console.log / Console.WriteLine",
+          "let / int / string",
+          "muuttuja koodissa"
+        ],
+        "lesson-21": [
+          "if",
+          "else",
+          "vertailuoperaattorit"
+        ],
+        "lesson-22": [
+          "for",
+          "while",
+          "laskuri",
+          "pysähtyminen"
+        ],
+        "lesson-23": [
+          "käännöstaulukko",
+          "kuvakaappaus",
+          "lähdekooditiedosto"
+        ]
+      },
+      "tasks": [
+        {
+          "id": "AT3",
+          "class": "MANDATORY",
+          "assessable": true,
+          "ai_resilient": true
+        },
+        {
+          "id": "8.1-JS",
+          "class": "MANDATORY",
+          "assessable": false,
+          "ai_resilient": true
+        },
+        {
+          "id": "8.1-CS",
+          "class": "MANDATORY",
+          "assessable": false,
+          "ai_resilient": true
+        },
+        {
+          "id": "8.2",
+          "class": "MANDATORY",
+          "assessable": false,
+          "ai_resilient": false
+        },
+        {
+          "id": "8.3",
+          "class": "DEEPENING",
+          "assessable": false,
+          "ai_resilient": false
+        },
+        {
+          "id": "8.4",
+          "class": "DEEPENING",
+          "assessable": false,
+          "ai_resilient": true
+        },
+        {
+          "id": "8.5",
+          "class": "DEEPENING",
+          "assessable": false,
+          "ai_resilient": true
+        }
+      ],
+      "rubric": "viikko-08/opettaja/rubriikki-AT3.md"
+    }
+  ]
+}

@@ -1,0 +1,378 @@
+# Silmukan sulkeminen — ensimmäinen oikea ohjelmasi
+
+## Johdanto
+
+Olet päässyt kurssin viimeiseen viikkoon. Kahdeksan viikkoa sitten ensimmäinen oppitunti esitti yhden kysymyksen, ja olet tehnyt töitä sen vastaamiseksi siitä asti:
+
+> **Miten puhun tietokoneelle niin, että se ymmärtää, mitä haluan sen tekevän?**
+
+Seitsemän viikon ajan vastaus tuli pala kerrallaan. Viikolla 1 tietokone oli kirjaimellinen suorittaja. Viikolla 2 opit pilkkomaan tehtävän pienempiin osiin. Viikoilla 3 ja 4 nimettiin rakennuspalat: syöte, käsittely, tuloste; järjestys, ehto, toisto. Viikolla 5 esiteltiin täsmälliset ehdot. Viikko 6 oli pseudokoodi — se hetki, jolloin ohjeesi lakkasivat olemasta vain huolellisia ja alkoivat näyttää oikealta koodilta. Viikolla 7 lopulta ylitettiin silta JavaScriptiin ja C#:iin: tulosta, muuttujat, `if/else`.
+
+Tällä viikolla vastaus muuttuu konkreettiseksi. Kirjoitat pienen ohjelman valitsemallasi kielellä — JavaScriptillä tai C#:lla — ja ajat sen oikealla koneella. Valitset, mitä ohjelma tekee, omasta **viikon 6 pseudokoodistasi**. Ajat sen kahdella eri lähtöarvolla. Rikot sen (tahallaan tai vahingossa), luet virheilmoituksen ja korjaat yhden rivin. Ja oppitunnilla 24 pidät **2 minuutin** suullisen esityksen: mitä se tekee, miten, mikä meni pieleen, miten korjasit sen. Tämä on **AT3**.
+
+**Viikon keskeinen viesti:** *Kurssi sulkee silmukan: otat pseudokoodin, jonka kirjoitit itse viikolla 6, käännät sen JavaScriptiksi tai C#:ksi, ajat sen, löydät yhden bugin, korjaat sen ja selität, miten se toimii. Ohjelmointi on lakannut olemasta mysteeri.*
+
+Molemmat kielet ovat ensisijaisia tällä viikolla, kuten viikolla 7. Jokainen esimerkki esiintyy kerran JavaScriptillä ja kerran C#:lla, vierekkäin. Lue ensin valitsemasi kielen sarake, mutta vilkaise myös toista — koodin *muoto* on lähes sama, ja sen huomaaminen on puoli pointtia.
+
+---
+
+## Oppitunti 22 — Silmukat koodissa
+
+### Miksi silmukat ovat olemassa
+
+Viikolla 5 kirjoitit ensimmäiset *toista-kunnes* -lauseesi (`TOISTA … KUNNES salasana on tarpeeksi pitkä`), ja viikolla 6 kirjoitit pseudokoodin silmukoita samanlaisina — `WHILE salasana on liian lyhyt DO …`, `FOR each item in lista DO …`. Ne olivat jo silmukoita. Puuttui vain tietokone, joka osasi lukea niitä.
+
+**Silmukka** on muodollinen nimi *toista-kunnes* -idealle, jota pseudokoodisi jo käytti — vain nyt tietokone, ei ihminen, tekee toiston. Ajattelu on identtistä. Tällä viikolla muuttuu syntaksi: pieni vakiomuoto, jonka JavaScript ja C# molemmat hyväksyvät, ja jossa on neljä nimettyä osaa, joihin voit osoittaa. Tietokone tarvitsee silmukkaan kolme asiaa: *Mistä aloitan? Milloin pysähdyn? Mitä muutan toistojen välissä?* Silmukka on paikka, jossa nuo kolme vastausta sijaitsevat yhdessä siistissä lohkossa.
+
+```mermaid
+flowchart TD
+    Start([Alku])
+    Init["aloitus: i = 1"]
+    Q{"pysäytys: i <= 5?"}
+    Body["runko: tulosta i"]
+    Change["muutos: i = i + 1"]
+    End([Loppu])
+    Start --> Init --> Q
+    Q -->|tosi| Body --> Change --> Q
+    Q -->|epätosi| End
+```
+
+> **Pysähdy hetkeksi:** Etsi yksi viikon 6 pseudokoodisivu, jolle kirjoitit `WHILE`, `REPEAT` tai `FOR each`. Lue se. Kirjoita omin sanoin, mikä toistuu ja mikä saa toiston loppumaan. Nuo kaksi vastausta ovat juuri se, mitä `for`- tai `while`-silmukka tarvitsee.
+
+### `for`-silmukan muoto
+
+Käyttökelpoisin silmukka tällä viikolla on **`for`-silmukka**. Käytä sitä, kun tiedät etukäteen, kuinka monta kertaa haluat rungon ajettavan — esimerkiksi "tulosta numerot 1–5" tai "sano hei kolme kertaa". Tässä on sama yksinkertainen laskuri molemmilla kielillä.
+
+#### JavaScript
+
+```js
+for (let i = 1; i <= 5; i++) {
+  console.log(i);
+}
+```
+
+#### C#
+
+```csharp
+for (int i = 1; i <= 5; i++) {
+    Console.WriteLine(i);
+}
+```
+
+Molemmat ohjelmat tulostavat:
+
+```text
+1
+2
+3
+4
+5
+```
+
+Kaksi pätkää ovat lähes identtisiä. Molemmissa käytetään avainsanaa `for`, kolmea pientä osaa pyöreissä suluissa erotettuna puolipisteillä ja aaltosulkuista runkoa. Ainoat pintaerot ovat juuri ne viikolta 7: `let` vs. `int` ja `console.log` vs. `Console.WriteLine`.
+
+### Laskuri, ehto, runko, päivitys
+
+`for`-silmukan sulkujen sisällä on kolme pientä osaa. Lisää aaltosulkuinen lohko perään, ja `for`-silmukalla on neljä nimettyä osaa:
+
+- **Laskuri** — pieni muuttuja, yleensä nimeltä `i`, joka pitää kirjaa siitä, kuinka pitkälle silmukka on edennyt. Yllä olevassa pätkässä laskuri alkaa arvosta `1`.
+- **Ehto** — kyllä/ei-testi, joka ajetaan *ennen* jokaista toistoa. Niin kauan kuin ehto on tosi, silmukka ajaa rungon kerran lisää. Yllä ehto on `i <= 5` — "niin kauan kuin laskuri on yhä 5 tai alle, jatka".
+- **Runko** — aaltosulkuinen lohko. Mitä tahansa kirjoitatkin tänne, se tapahtuu kerran per toisto. Yllä runko on vain `console.log(i);` (tai `Console.WriteLine(i);`), joten jokainen toisto tulostaa nykyisen laskurin.
+- **Päivitys** — mitä muuttuu toistojen välissä. Yleensä se lisää yhden laskuriin. Yllä päivitys on `i++`, joka on lyhennys "kasvata `i`:tä yhdellä".
+
+Lue silmukka ääneen kerran: "**Laskuri** alkaa arvosta 1. **Ehto**: niin kauan kuin laskuri on 5 tai alle. **Runko**: tulosta laskuri. **Päivitys**: lisää yksi laskuriin." Molemmat kielet antavat sinun lukea sen täsmälleen tässä järjestyksessä.
+
+Jos laskuri ei koskaan muutu — jos unohdit `i++`:n — ehto pysyy totena ikuisesti ja silmukka ei koskaan lopu. Tätä bugia kutsutaan **äärettömäksi silmukaksi**, ja nimeämme sen hetken kuluttua.
+
+### `while`-silmukan muoto
+
+`for` on silmukka, jota käytät, kun tiedät montako kertaa. **`while`** on silmukka, jota käytät, kun tiedät *pysäytysehdon* mutta et tarkkaa toistojen määrää — "kysy kunnes salasana on tarpeeksi pitkä", "jatka niin kauan kuin mukissa on teetä jäljellä". Muoto on jopa yksinkertaisempi kuin `for`: vain ehto suluissa ja runko aaltosulkeissa.
+
+#### JavaScript
+
+```js
+let count = 0;
+while (count < 3) {
+  console.log("Hello");
+  count = count + 1;
+}
+```
+
+#### C#
+
+```csharp
+int count = 0;
+while (count < 3) {
+    Console.WriteLine("Hello");
+    count = count + 1;
+}
+```
+
+Molemmat ohjelmat tulostavat:
+
+```text
+Hello
+Hello
+Hello
+```
+
+Lue `while`-silmukka tavallisella suomella: "niin kauan kuin `count` on alle 3, tulosta `Hello`, sitten lisää yksi `count`:iin". Huomaa, että laskuri (`count`), ehto (`count < 3`), runko (`console.log("Hello")`) ja päivitys (`count = count + 1`) ovat kaikki yhä mukana — ne on vain hajautettu pitkin silmukkaa eikä pakattu sulkuihin. `while`-silmukka on `for`-silmukka, jonka neljä osaa on siirretty eri kohtiin luettavuuden vuoksi.
+
+Pieni vaihtokauppa: `while` on joustavampi, mutta sinun täytyy muistaa päivittää laskuri itse rungon sisällä. `for`-silmukka laittaa päivityksen sulkuihin, joista sitä on vaikea unohtaa. Useimmat tämän viikon ohjelmat ovat onnellisempia `for`-silmukoina; tartu `while`-silmukkaan vain silloin, kun "kunnes" tuntuu luonnollisemmalta kuin "toista N kertaa".
+
+### Kun silmukka pyörii ikuisesti
+
+**Ääretön silmukka** on silmukka, jonka ehto ei koskaan muutu epätodeksi, joten runko pyörii jatkuvasti eikä ohjelma koskaan lopu. Se tapahtuu useimmiten silloin, kun unohdat päivitysvaiheen.
+
+```js
+let count = 0;
+while (count < 3) {
+  console.log("Hello");
+  // puuttuu: count = count + 1;
+}
+```
+
+```csharp
+int count = 0;
+while (count < 3) {
+    Console.WriteLine("Hello");
+    // puuttuu: count = count + 1;
+}
+```
+
+Selaimen konsolissa näet tulosteen virtaavan, kunnes sivu jumittuu; .NET Fiddlessä ajo aikakatkaistaan muutaman sekunnin jälkeen viestillä kuten *"The process was terminated"*. Kumpikaan ei ole vaarallinen — sulje välilehti tarvittaessa — mutta *korjaus* on sama kummallakin kielellä: varmista, että jokin rungon sisällä muuttaa arvoa, jota ehto tarkistaa.
+
+Jos ohjelmasi näyttää jumiutuvan ensimmäisellä ajolla, todennäköisin syy on juuri tämä: silmukka, jonka laskuri ei koskaan päivity.
+
+> **Pysähdy hetkeksi:** Katso yllä olevaa `for`-silmukkaa (laskuri 1:stä 5:een). Mitä tapahtuisi, jos vaihtaisit `i++`:n `i--`:ksi? Ennusta tuloste ennen kuin ajat sen. Jäljitä sitten mielessäsi: muuttuuko ehto `i <= 5` koskaan epätodeksi? Jos ei, mikä bugi se on?
+
+---
+
+## Oppitunti 23 — Pseudokoodista pieneksi ohjelmaksi
+
+Rakennuspäivä. Ei uusia käsitteitä. Käännät yhden palan omaa viikon 6 pseudokoodiasi rivi riviltä JavaScriptiksi tai C#:ksi. Ajattelu on jo tehty; työ on pääosin korvausta.
+
+### Valitse yksi pala viikon 6 pseudokoodistasi
+
+Avaa viikon 6 muistiinpanot. Valitse **yksi** pätkä — ikärajatarkistus, salasanan pituustarkistus, pisteet palautteeksi, laskuri, tervehdys. Sopiva koko on **6–20 riviä**. Jos suosikkisi on suurempi, valitse *yksi osa* siitä, joka tekee yhden selkeän työn alusta loppuun.
+
+Jos et löydä viikon 6 pseudokoodia (tai hukkasit paperin), valitse yksi näistä varamalleista ja mukauta arvot omaan kontekstiisi:
+
+- **Ikärajatarkistus.** Aseta ikä; jos se on 18 tai yli, tulosta "sallittu"; muuten "ei sallittu".
+- **Salasanan pituustarkistus.** Aseta salasana; jos se on 8 merkkiä tai pidempi, tulosta "tarpeeksi vahva"; muuten "liian lyhyt".
+- **Pisteet palautteeksi.** Aseta pistemäärä; jos se on 80 tai yli, tulosta "loistavaa työtä"; jos 50 tai yli, tulosta "läpäisit"; muuten "yritä uudelleen".
+- **Yksinkertainen laskuri.** Tulosta numerot 1–5 `for`-silmukan avulla.
+- **Tervehdys nimellä.** Aseta nimi; käytä `for`-silmukkaa tulostamaan "Hei, NIMI" kolme kertaa.
+
+### Käännöstaulukko
+
+Useimmilla pseudokoodiriveillä on yksi selkeä muoto JavaScriptissä ja C#:ssa. Tämän pienen taulukon ulkoa opettelu tekee oppitunnista 23 lähes mekaanisen.
+
+| Pseudokoodimalli                | JavaScript                                    | C#                                                |
+|---------------------------------|-----------------------------------------------|---------------------------------------------------|
+| `WRITE "Hello"`                 | `console.log("Hello");`                       | `Console.WriteLine("Hello");`                     |
+| `SET x TO 5`                    | `let x = 5;`                                  | `int x = 5;`                                      |
+| `SET name TO "Aino"`            | `let name = "Aino";`                          | `string name = "Aino";`                           |
+| `IF x >= 18 THEN … ELSE …`      | `if (x >= 18) { … } else { … }`               | `if (x >= 18) { … } else { … }`                   |
+| `REPEAT N TIMES`                | `for (let i = 0; i < N; i++) { … }`           | `for (int i = 0; i < N; i++) { … }`               |
+| `WHILE x < 3 DO …`              | `while (x < 3) { … }`                         | `while (x < 3) { … }`                             |
+| `INCREASE x BY 1`               | `x = x + 1;`  *(tai `x++;`)*                  | `x = x + 1;`  *(tai `x++;`)*                      |
+| `IF x EQUALS 5 THEN …`          | `if (x === 5) { … }`  *(tai `==`)*            | `if (x == 5) { … }`                               |
+
+Tämä riittää kääntämään kaiken, mitä kirjoitit viikolla 6. Rakenne oli jo siellä; taulukko antaa vain oikeat pintasanat yhdelle tietylle kielelle.
+
+### Kaksi mallisuoritusta — rinnakkain
+
+**Ikärajatarkistus.** *Viikon 6 pseudokoodi: aseta ikä arvoon 17; jos ikä on 18 tai enemmän, tulosta "sallittu", muuten "ei sallittu".*
+
+#### JavaScript
+
+```js
+let age = 17;
+if (age >= 18) {
+  console.log("sallittu");
+} else {
+  console.log("ei sallittu");
+}
+```
+
+#### C#
+
+```csharp
+int age = 17;
+if (age >= 18) {
+    Console.WriteLine("sallittu");
+} else {
+    Console.WriteLine("ei sallittu");
+}
+```
+
+Molemmat tulostavat `ei sallittu`. Vaihda `17` arvoon `19` ja molemmat tulostavat `sallittu`. Kaksi pätkää ovat rivi-rivilta yhtäläiset.
+
+**Tervehdys nimellä (silmukka + muuttuja).** *Viikon 6 pseudokoodi: toista 3 kertaa: tulosta "Hei, nimi".*
+
+#### C#
+
+```csharp
+string name = "Aino";
+for (int i = 0; i < 3; i++) {
+    Console.WriteLine("Hei, " + name);
+}
+```
+
+#### JavaScript
+
+```js
+let name = "Aino";
+for (let i = 0; i < 3; i++) {
+  console.log("Hei, " + name);
+}
+```
+
+Molemmat tulostavat `Hei, Aino` kolme kertaa. `+`-merkki tekstin ja muuttujan välissä toimii samalla tavalla kummallakin kielellä — sana sille, mitä `+` tekee tässä, on **konkatenaatio**, palasten liimaaminen yhdeksi tekstipalaksi.
+
+Yleinen yhden merkin ansa huomattavaksi nyt (ennen oppitunnin 24 virheviestien lukemista): merkkijonon **pituus** kirjoitetaan `name.length` (pieni l) JavaScriptissä ja `name.Length` (iso L) C#:ssa. Niiden sekoittaminen on juuri sellainen kirjoitusvirhe, joka tuottaa virheilmoituksia, joita luet huomenna.
+
+### Tallenna, aja, näe tuloste
+
+**JavaScript — selaimen konsolissa:** avaa mikä tahansa verkkosivu; paina `Cmd + Opt + J` (Mac) tai `Ctrl + Shift + J` (Win/Linux); liitä koodisi, paina Enter, lue tuloste. Tallenna sama koodi pelkkänä tekstitiedostona, jossa on `.js`-pääte — se on AT3:n **lähdekoodisi**.
+
+**C# — verkossa toimivassa .NET-ajurissa:** avaa `dotnetfiddle.net`; valitse yläreunasta **Console**; liitä koodi `Main`-metodiin; paina **Run**, lue tuloste. Tallenna sama koodi pelkkänä tekstitiedostona, jossa on `.cs`-pääte — se on AT3:n lähdekoodisi.
+
+Ota **kuvakaappaus** ajosta tuloste näkyvissä. Tämä kuvakaappaus on yksi AT3:n palautettavista tuotoksista.
+
+> **Pysähdy hetkeksi:** Katso ohjelmaa, jonka kirjoitit (tai olet kirjoittamassa). Lue se kerran, rivi riviltä, *ääneen*, tavallisella suomella. Jos pystyt sanomaan, mitä jokainen rivi tekee, ilman taulukkoa, olet valmis esittämään sen 2 minuutissa oppitunnilla 24. Jos kompastut johonkin riviin, se on rivi, joka kannattaa lukea uudelleen ennen esitystä.
+
+### Kun ruutu on tyhjä tai hiljainen
+
+Jos ajat ohjelmasi eikä mitään tapahdu, tarkista tylsät syyt ensin:
+
+- **Painoitko todella Run / Enter?** Yleisin syy.
+- **Liitoitko vain osan ohjelmasta?** Erityisesti .NET Fiddlessä koodisi täytyy olla `Main`-metodin sisällä.
+- **Onko tulostusrivissä kirjoitusvirhe?** `console.Log` (iso L) on JavaScript-virhe; C#:ssa `Console.Writeline` (pieni `l`) ei myöskään ole olemassa — sen täytyy olla `Console.WriteLine`.
+- **Pysähtyikö ohjelma aiemmin virheeseen?** Selaa ylös. Punainen viesti tyhjän tilan yllä *on* ongelma — oppitunti 24 opettaa sinua lukemaan näitä.
+
+Jos mikään näistä ei ole syy, lisää `console.log("got here");` (tai `Console.WriteLine("got here");`) lähelle alkua. Jos "got here" tulostuu, ohjelma toimii; puuttuva tuloste on jossain alempana.
+
+> **Pysähdy hetkeksi:** Vertaa käännettyä ohjelmaasi alkuperäiseen viikon 6 pseudokoodiin. Aseta ne vierekkäin. Ympyröi ne osat jokaisesta rivistä, jotka ovat kirjaimellisesti samat — muuttujien nimet, numerot, avainsanat kuten `if`. Ympyröitten määrä yllättää sinut. Loput ovat syntaksia; ympyrät ovat se ajattelu, jota kurssi on harjoittanut sinua tekemään viikosta 1 lähtien.
+
+---
+
+## Oppitunti 24 — Testaa, korjaa yksi virhe, esitä
+
+Kolme asiaa laskeutuu tässä, ja ne kaikki riippuvat ohjelmasta, joka toimii. **Testaa** kahdella lähtöarvolla. **Lue** yksi oikea virheilmoitus ja **korjaa** yksi rivi. **Esitä** koko tarina 2 minuutissa.
+
+### Testaaminen käsin
+
+"Testaaminen" tällä viikolla tarkoittaa yhtä tiettyä asiaa: **aja ohjelma vähintään kahdella eri lähtöarvolla ja tarkista, että tuloste on järkevä kummassakin tapauksessa.** Ei automaattista testaustyökalua, ei testikehystä, ei erikoissanastoa. Vain yhden numeron tai yhden merkkijonon vaihtaminen ylhäällä ja Run-napin painaminen.
+
+Yllä olevalle ikäraja-ohjelmalle kaksi arvoa voisivat olla `age = 17` ja `age = 19`. Ensimmäisen pitäisi tulostaa `ei sallittu`; toisen `sallittu`. Jos molemmat ajot vastaavat ennustustasi, ohjelma läpäisee käsintestisi. Jos toinen tulostaa väärän viestin, olet juuri löytänyt bugin.
+
+#### JavaScript — vaihda yksi rivi ajojen välillä
+
+```js
+let age = 17;   // aja kerran 17:llä, vaihda sitten 19:ksi ja aja uudelleen
+```
+
+#### C# — vaihda yksi rivi ajojen välillä
+
+```csharp
+int age = 17;   // aja kerran 17:llä, vaihda sitten 19:ksi ja aja uudelleen
+```
+
+AT3:ssa ajat oman ohjelmasi kahdella eri arvolla ja tallennat molemmat tulosteet (yksi kuvakaappaus, jossa molemmat ajot näkyvät, riittää; kaksi kuvakaappausta on myös OK).
+
+### Oikean virheilmoituksen lukeminen
+
+Kun tietokone on tyytymätön, se tulostaa **virheilmoituksen**. Ensikertalaiselle se näyttää pelottavalta — pitkä, tekninen — mutta tämän viikon yksinkertaisille bugeille viesti melkein aina osoittaa juuri sitä riviä, joka pitää muuttaa.
+
+Yleinen JavaScript-virhe:
+
+```text
+Uncaught ReferenceError: scre is not defined
+    at <anonymous>:3:15
+```
+
+Ja sen C#-serkku:
+
+```text
+error CS0103: The name 'scre' does not exist in the current context
+```
+
+Molemmat viestit sanovat saman asian: *en tiedä mitä `scre` on.* Syy on melkein aina kirjoitusvirhe — jossain ylhäällä määrittelit `score`, ja jossain alempana kirjoitit `scre` (puuttuu `o`). Korjaus: etsi `scre`, kirjoita puuttuva `o`, aja uudelleen.
+
+Tämä on **virheenetsintä tämän kurssin tasolla**: lue, mitä tietokone kertoi, etsi rivi, josta se puhui, vaihda yksi pieni asia, aja uudelleen.
+
+Kaksi muuta virhetyyppiä, joita voit kohdata. **JavaScript**-vertailussa `=` `===`:n sijaan ei yleensä näy mitään virheilmoitusta, vaan hiljainen väärä vastaus — sen huomaa *testaamalla kahdella arvolla* ja huomaamalla, että toinen on väärä. **C#**-koodissa puuttuva puolipiste tulostaa `error CS1002: ; expected` ja kertoo rivinumeron. Lisää `;` sen rivin loppuun, tallenna, aja uudelleen.
+
+> **Pysähdy hetkeksi:** Valitse yksi ohjelma, jonka kirjoitit oppitunnilla 23. Logiikkaa muuttamatta tee tahallinen kirjoitusvirhe muuttujan nimeen jossakin ohjelman keskellä. Aja se. Lue virheilmoitus. Ennusta, ennen kuin korjaat sen, täsmälleen mihin sanaan ohjelmassasi viesti osoittaa. Korjaa sitten ja aja uudelleen. Ensimmäisellä kerralla, kun teet tämän, virheilmoitusten mysteeri katoaa.
+
+### Yksi pieni korjaus, yksi uudelleenajo
+
+"Virheenetsintä" tällä kurssilla tarkoittaa **konsolin virheilmoituksen lukemista ja yhden pienen korjauksen tekemistä**. Se ei ole debugger-työkalu eikä rivi-rivilta-pysäytys-työkalu. Ei mitään erityisohjelmistoa asennettavaksi. Ei mitään testikehystä opeteltavaksi. Koko silmukka on:
+
+1. Aja ohjelma.
+2. Näe virheilmoitus *tai* odottamaton tuloste.
+3. Lue viesti (tai vertaa odotettua ja todellista tulostetta rivi riviltä).
+4. Etsi vastuussa oleva rivi.
+5. Vaihda yksi pieni asia.
+6. Aja ohjelma uudelleen.
+
+AT3:ssa sinun täytyy tehdä tämä vähintään kerran. Bugi voi olla kirjoitusvirhe, puuttuva puolipiste (C#), `=` `==`:n sijaan, puuttuva `}` — mikä tahansa kelpaa. Jos ohjelmasi toimi ensimmäisellä yrityksellä, **laukaise** bugi tarkoituksella: riko yksi asia, lue viesti, korjaa takaisin.
+
+### 2 minuutin esityksesi
+
+Oppitunnilla 24 pidät **2 minuutin** suullisen esityksen ohjelmastasi luokalle. Kaksi minuuttia on lyhyt aika — noin 200 puhuttua sanaa. Esityksessä on **neljä osaa**, kukin noin 30 sekuntia:
+
+1. **Mitä ohjelma tekee.** Yksi tai kaksi virkettä tavallisella suomella. *"Ohjelmani ottaa salasanan ja tulostaa joko 'tarpeeksi vahva' tai 'liian lyhyt' sen pituuden mukaan."*
+2. **Miten se tekee sen.** Käy läpi rakenne. *"Ylhäällä asetan muuttujan nimeltä `password`. Sitten on `if/else`: jos salasanan pituus on 8 tai enemmän, se tulostaa 'tarpeeksi vahva', muuten 'liian lyhyt'."* Jos ohjelmassasi on silmukka, nimeä neljä osaa (laskuri, ehto, runko, päivitys).
+3. **Mikä meni pieleen.** Nimeä yksi bugi, jonka löysit. *"Ensimmäisellä ajolla olin kirjoittanut `password.length` pienellä l:llä, mutta koodini oli C#, jossa sen täytyy olla iso L, joten sain CS0103-virheen."*
+4. **Miten korjasit sen.** Yksi virke. *"Vaihdoin pienen l:n isoon L:ään sillä yhdellä rivillä ja ajoin ohjelman uudelleen."*
+
+Siinä on 2 minuuttiasi. Ei kalvoja, ei sanasta sanaan luettavaa käsikirjoitusta, ei tarvetta tyylikkääseen koodiin. Sinä **seisot oman ohjelmasi takana** ja selität sen omin sanoin.
+
+Käytännön vinkki: harjoittele kerran kotona puhelimen ajastimella. Jos olet valmis 45 sekunnissa, hyppäät yhden osan yli. Jos ylität 2 minuutin, luet luultavasti koodia rivi riviltä — leikkaa se ja puhu siitä, mitä ohjelma *tekee*.
+
+> **Pysähdy hetkeksi:** Avaa ohjelmasi näytöllä nyt. Kokeile neljä osaa ääneen ajastimen kanssa, jos sinulla on sellainen. Ensimmäinen ajo on luultavasti joko liian lyhyt tai liian pitkä. Toinen ajo on melkein aina lähempänä. Esitys ei ole muistitesti — se on testi siitä, pystytkö seisomaan oman työsi takana.
+
+### Vertailu luokkakaverin kanssa
+
+Jos sinulla on aikaa L24:ssä (esitysten jälkeen), etsi luokkakaveri, joka käytti **toista** kieltä. Lukekaa toistenne ohjelmat. Kirjoita 3–5 virkettä tavallisella suomella eroista — puolipisteet kaikkialla C#:ssa vs. valinnaiset JS:ssä, `Console.WriteLine` vs. `console.log`, `int` / `string` vs. `let`, isot alkukirjaimet C#-metodien nimissä — ja yhdestä asiasta, joka on sama: silmukka ja `if/else` näyttävät lähes identtisiltä molemmilla puolilla. Tämä viimeinen havainto on koko pointti molempien näkemisestä.
+
+---
+
+## Miten AT3 arvioidaan
+
+AT3 on **hyväksytty / ei vielä hyväksytty**. Ei numeerista arvosanaa, ei rubriikkia lyhyen tarkistuslistan lisäksi.
+
+**Palautat:**
+
+- **Lähdekoodin** (`.js`- tai `.cs`-tiedosto tai selkeästi merkattu koodinpätkä oikealla kielimerkinnällä).
+- **Kuvakaappauksen** ohjelman ajosta, jossa on vähintään yksi odotettu tuloste.
+- **3–5 virkkeen kirjallisen pohdinnan**, jossa nimeät yhden löytämäsi bugin ja yhden korjauksen, jonka teit.
+- **2 minuutin suullisen esityksen** luokalle oppitunnilla 24, joka kattaa yllä olevat neljä osaa.
+
+**Opettaja tarkistaa neljä asiaa:**
+
+- Ohjelma toimii (tai epäonnistunut yrityksesi on dokumentoitu virheilmoituksen kanssa).
+- Pystyt nimeämään tavallisella suomella, mitä ohjelma tekee.
+- Yksi bugi–korjaus-pari on dokumentoitu.
+- 2 minuutin esitys on pidetty.
+
+Jos jokin neljästä puuttuu, työ on **ei vielä hyväksytty** ja opettaja kertoo, minkä korjaat. Ei vielä -hyväksytyssä ei ole häpeää; se tarkoittaa vain, että on yksi pieni asia tehtävänä.
+
+---
+
+## Yhteenveto — silmukka sulkeutuu kurssin keskeiseen kysymykseen
+
+Kahdeksan viikkoa sitten kurssi aukesi yhdestä kysymyksestä. Olet vastannut siihen, pala kerrallaan, joka viikko siitä asti. Nyt voit vastata siihen kokonaan, omin sanoin, toimivan ohjelman kanssa kädessäsi. Tässä se vielä kerran — sama sanamuoto, joka sillä on ollut viikosta 1 lähtien:
+
+> **Miten puhun tietokoneelle niin, että se ymmärtää, mitä haluan sen tekevän?**
+
+Vastaat siihen tällä viikolla tekemällä sen. Otat pseudokoodin, jonka kirjoitit itse viikolla 6, ja käännät sen JavaScriptiksi tai C#:ksi. Esittelet muuttujan. Kirjoitat `if/else`:n. Kirjoitat `for`-silmukan. Painat Run. Jos tietokone on tyytymätön, se tulostaa virheilmoituksen, joka osoittaa juuri sitä riviä, jonka teit väärin, ja korjaat sen yhden rivin. Sitten nouset seisomaan luokan eteen ja sanot 2 minuutissa, mitä ohjelmasi tekee ja miten korjasit sen, mikä meni pieleen.
+
+Tämä on ohjelmointia tällä tasolla. Ei taikuutta. Ei mysteeriä. Pieni, huolellinen tiedosto ohjeita, joka tekee täsmälleen sen, mitä sanoit. Kaikki mitä loppukoulutuksesi lisää — lisää kieliä, suurempia projekteja, kirjastoja, kehyksiä, tiimityötä — sijaitsee saman yhden asian päällä: kirjaimellinen tietokone, joka seuraa kirjoittamiasi ohjeita ja kertoo selkokielellä, kun jokin ei jäsenny.
+
+Ohjelmointi on lakannut olemasta mysteeri. Säilytä AT3:n lähdetiedostosi. Avaa se uudelleen kuuden kuukauden päästä. Se näyttää pieneltä. Se on koko pointti — *sinä* kirjoitit sen.
+
+Tervetuloa keskeisen kysymyksen toiselle puolelle.

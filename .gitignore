@@ -1,0 +1,31 @@
+# macOS metadata
+.DS_Store
+._*
+
+# Credentials and machine-local secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+credentials-*.json
+secrets.json
+secrets.*
+.netrc
+.npmrc
+
+# Logs, caches and temporary files (not historical course backups)
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+__pycache__/
+.pytest_cache/
+.cache/
+tmp/
+temp/

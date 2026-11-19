@@ -1,0 +1,55 @@
+{
+  "slug": "ohjelmallinen-ajattelu-at",
+  "created": "2026-11-04",
+  "brief_oneliner": "AT1–AT3 arvioitavat tehtävät ja rubriikit olemassa olevaan Ohjelmallinen ajattelu -kurssiin",
+  "language": "fi",
+  "course_home": "/home/claude/oa-at/ (vienti: ~/Kurssit/tyokalut/material-pipeline/ohjelmallinen_ajattelu/viikko-XX ja ~/Kurssit/ohjelmallinen-ajattelu/AT-tehtavat)",
+  "phase": "done",
+  "status": "done",
+  "gate_rounds": {
+    "linnea": 3,
+    "wilhelm": 2
+  },
+  "gate_decisions": [
+    {
+      "gate": "linnea",
+      "round": 1,
+      "decision": "korjattava",
+      "audit_file": "tuotanto/audit/linnea-r1.md"
+    },
+    {
+      "gate": "linnea",
+      "round": 2,
+      "decision": "korjattava (kevyt) → korjattu, jatko Wilhelmille",
+      "audit_file": "tuotanto/audit/linnea-r2.md"
+    },
+    {
+      "gate": "wilhelm",
+      "round": 1,
+      "decision": "approved",
+      "audit_file": "tuotanto/audit/wilhelm-r1.md"
+    },
+    {
+      "gate": "linnea",
+      "round": 3,
+      "decision": "korjattava (kevyt) → korjattu",
+      "audit_file": "tuotanto/audit/linnea-r3.md"
+    },
+    {
+      "gate": "wilhelm",
+      "round": 2,
+      "decision": "approved",
+      "audit_file": "tuotanto/audit/wilhelm-r2.md"
+    }
+  ],
+  "escalations": [],
+  "artifacts": {
+    "brief": "tuotanto/00-brief.md",
+    "plan": "tuotanto/01-suunnitelma.md",
+    "course_draft": "tuotanto/course.draft.json",
+    "materiaali": "tuotanto/materiaali/",
+    "audit": "tuotanto/audit/",
+    "release": ".",
+    "course_json": "course.json"
+  }
+}
