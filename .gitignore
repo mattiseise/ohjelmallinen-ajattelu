@@ -23,6 +23,8 @@ secrets.*
 *.temp
 *.swp
 *.swo
+.~lock.*#
+~$*
 *~
 __pycache__/
 .pytest_cache/

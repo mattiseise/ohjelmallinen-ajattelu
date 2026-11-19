@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Computational Thinking — Lesson 1 bundle</title>
+</head>
+<body>
+
+<section class="cover">
+  <div class="cover-eyebrow">Pipeline test release · Lesson 1</div>
+  <h1 class="cover-title">Computational Thinking</h1>
+  <p class="cover-subtitle">Speaking to a computer — what does it actually hear?</p>
+  <div class="cover-question">
+    <span class="cover-question-label">The course turns around one question</span>
+    <p class="cover-question-text">How do I speak to a computer so that it understands what I want it to do?</p>
+  </div>
+  <dl class="cover-meta">
+    <dt>Audience</dt><dd>First-year vocational ICT students, age ~15–17</dd>
+    <dt>Course shape</dt><dd>8 weeks · 3 lessons / week · 90 min / lesson</dd>
+    <dt>This bundle</dt><dd>Lesson 1 — full canonical 4-block package</dd>
+    <dt>Language</dt><dd>English (Finnish-language polishing skipped for this run)</dd>
+  </dl>
+  <div class="cover-footer">
+    <span>Material Pipeline · Cowork edition</span>
+    <span>Built for training-team review</span>
+  </div>
+</section>
+
+<section class="toc">
+  <h1>Contents</h1>
+  <ol class="toc-list">
+    <li><span class="toc-num">01</span> <a href="#sec-readme">Course overview</a><span class="toc-path">README.md</span></li>
+<li><span class="toc-num">02</span> <a href="#sec-self">Self-study material</a><span class="toc-path">student/lesson-01/self-study.md</span></li>
+<li><span class="toc-num">03</span> <a href="#sec-tasks">Student tasks</a><span class="toc-path">student/lesson-01/student-tasks.md</span></li>
+<li><span class="toc-num">04</span> <a href="#sec-vocab">Vocabulary</a><span class="toc-path">student/lesson-01/vocabulary.md</span></li>
+<li><span class="toc-num">05</span> <a href="#sec-teacher">Teacher materials</a><span class="toc-path">teacher/lesson-01/teacher-materials.md</span></li>
+  </ol>
+</section>
+
+<section class="lesson-section" id="sec-readme">
+  <header class="section-header">
+    <div class="section-eyebrow">Part 01 · README.md</div>
+    <h1 class="section-title">Course overview</h1>
+  </header>
+  <div class="section-body">
+    <h1 id="computational-thinking">Computational Thinking</h1>
+<p>A first-year course for vocational ICT students (roughly 15–17 years old, no prior programming experience). The course runs for 8 weeks, with 3 lessons of 90 minutes per week — 24 lessons in total. It begins with everyday instructions a teenager already gives every day, gradually moves through decomposition, abstraction, sequence, condition and repetition, and only in the last two weeks translates that thinking into a tiny browser-based JavaScript program. Programming is treated as the last layer; the thinking is what the course actually trains.</p>
+<p>The whole course turns around one central question:</p>
+<blockquote>
+<p><strong>How do I speak to a computer so that it understands what I want it to do?</strong></p>
+</blockquote>
+<h2 id="status">Status</h2>
+<p><strong>This release contains only Lesson 1.</strong> The full 24-lesson plan is locked in <code>01-suunnitelma.md</code> at the project root, and lessons 2–24 will be produced in later pipeline runs. The folder layout below is already in its final shape, so each future lesson can be dropped into <code>student/lesson-XX/</code> and <code>teacher/lesson-XX/</code> without restructuring anything else.</p>
+<h2 id="canonical-block-structure-per-lesson">Canonical block structure per lesson</h2>
+<p>Every lesson in this course is delivered as four Markdown files in two folders. Filenames are exact, lowercase, kebab-case:</p>
+<pre><code>student/lesson-XX/
+  self-study.md        # student-facing self-study text (800–1400 words)
+  student-tasks.md     # 1–2 tasks, at least one AI-resilient (400–900 words)
+  vocabulary.md        # 6–10 terms, at least one looking-ahead preview term
+teacher/lesson-XX/
+  teacher-materials.md # objectives, misconceptions, 90-min plan, assessment (800–1400 words)
+</code></pre>
+<p>A fifth file — <code>teacher/lesson-XX/teacher-led-tasks.md</code> — is <strong>optional</strong> and only added when a lesson genuinely needs a separate teacher-led group activity. Lesson 1 does not.</p>
+<h2 id="lesson-index">Lesson index</h2>
+<table>
+<thead>
+<tr>
+<th>Lesson</th>
+<th>Title</th>
+<th>Files</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>Speaking to a computer — what does it actually hear?</td>
+<td><a href="student/lesson-01/self-study.md">self-study</a> · <a href="student/lesson-01/student-tasks.md">student-tasks</a> · <a href="student/lesson-01/vocabulary.md">vocabulary</a> · <a href="teacher/lesson-01/teacher-materials.md">teacher-materials</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="full-24-lesson-roadmap">Full 24-lesson roadmap</h2>
+<p>The course is grouped by week. Only Lesson 01 is built in this release; the rest are <strong>planned</strong> and will be produced in later pipeline runs. Three assessed tasks (AT1 in week 2/3, AT2 around weeks 5/6, AT3 in week 8) are all designed to be AI-resilient: each one requires the student's own context, their own artefact, and a short oral or recorded element.</p>
+<h3 id="week-1-computational-thinking">Week 1 — Computational thinking</h3>
+<table>
+<thead>
+<tr>
+<th>L#</th>
+<th>Topic</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="student/lesson-01/self-study.md">01</a></td>
+<td>What does computational thinking mean? Humans, computers, and interpreting instructions</td>
+<td><strong>built</strong></td>
+</tr>
+<tr>
+<td>02</td>
+<td>Algorithms in everyday life: step-by-step instructions without code</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>03</td>
+<td>Precise and imprecise instructions: testing and improving instructions</td>
+<td>planned</td>
+</tr>
+</tbody>
+</table>
+<h3 id="week-2-decomposing-a-problem">Week 2 — Decomposing a problem</h3>
+<table>
+<thead>
+<tr>
+<th>L#</th>
+<th>Topic</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>04</td>
+<td>Decomposing a problem: main task, subtasks, and goal</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>05</td>
+<td>Order of steps and dependencies</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>06</td>
+<td>Decomposing an IT-related task (AT1 submitted)</td>
+<td>planned</td>
+</tr>
+</tbody>
+</table>
+<h3 id="week-3-describing-a-process">Week 3 — Describing a process</h3>
+<table>
+<thead>
+<tr>
+<th>L#</th>
+<th>Topic</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>07</td>
+<td>Describing a process: list, step-by-step structure, and simple flowchart</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>08</td>
+<td>Abstraction</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>09</td>
+<td>Reusable instructions and the idea of a function without code</td>
+<td>planned</td>
+</tr>
+</tbody>
+</table>
+<h3 id="week-4-comparing-solutions">Week 4 — Comparing solutions</h3>
+<table>
+<thead>
+<tr>
+<th>L#</th>
+<th>Topic</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>Same problem, multiple solutions</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Criteria for evaluating solutions</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Improving one's own solution and using peer feedback</td>
+<td>planned</td>
+</tr>
+</tbody>
+</table>
+<h3 id="week-5-logic-structures">Week 5 — Logic structures</h3>
+<table>
+<thead>
+<tr>
+<th>L#</th>
+<th>Topic</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13</td>
+<td>Sequence</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Conditions: if-then-else thinking</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Repetition</td>
+<td>planned</td>
+</tr>
+</tbody>
+</table>
+<h3 id="week-6-from-thinking-to-code">Week 6 — From thinking to code</h3>
+<table>
+<thead>
+<tr>
+<th>L#</th>
+<th>Topic</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16</td>
+<td>Pseudocode</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Input, processing, output, and the idea of a variable</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Testing pseudocode: dry running (AT2 submitted)</td>
+<td>planned</td>
+</tr>
+</tbody>
+</table>
+<h3 id="week-7-programming-languages-in-practice-javascript-part-1">Week 7 — Programming languages in practice (JavaScript, part 1)</h3>
+<table>
+<thead>
+<tr>
+<th>L#</th>
+<th>Topic</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>19</td>
+<td>Why are programming languages needed? Syntax, commands, JavaScript</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>20</td>
+<td>First JavaScript commands: console.log, values, variables</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Conditions in JavaScript: if, else, comparisons</td>
+<td>planned</td>
+</tr>
+</tbody>
+</table>
+<h3 id="week-8-programming-languages-in-practice-javascript-part-2">Week 8 — Programming languages in practice (JavaScript, part 2)</h3>
+<table>
+<thead>
+<tr>
+<th>L#</th>
+<th>Topic</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22</td>
+<td>Loops in JavaScript: for or while</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Small practical assignment: from pseudocode to JavaScript</td>
+<td>planned</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Testing, debugging, presentation (AT3 submitted and presented)</td>
+<td>planned</td>
+</tr>
+</tbody>
+</table>
+<h2 id="source-of-truth">Source of truth</h2>
+<ul>
+<li><code>../01-suunnitelma.md</code> — the locked course plan: full 24-lesson table, learning objectives by Bloom stage, assessment design, scope boundaries, and the 17 acceptance criteria every lesson must meet.</li>
+<li><code>../00-brief.md</code> — the original brief from which the plan was derived.</li>
+</ul>
+<p>If anything in this release contradicts the plan, the plan wins. Send corrections back through the material pipeline.</p>
+  </div>
+</section>
+
+<section class="lesson-section" id="sec-self">
+  <header class="section-header">
+    <div class="section-eyebrow">Part 02 · student/lesson-01/self-study.md</div>
+    <h1 class="section-title">Self-study material</h1>
+  </header>
+  <div class="section-body">
+    <h1 id="speaking-to-a-computer-what-does-it-actually-hear">Speaking to a computer — what does it actually hear?</h1>
+<h2 id="introduction">Introduction</h2>
+<p>You ask a friend to "grab my charger from the kitchen table." Your friend walks in, sees three chargers on the table, picks up the wrong one, and brings it to you. You sigh and explain which one. Your friend was paying attention; the instruction was just not specific enough. Now imagine the same situation with a computer, except the computer cannot sigh and cannot guess. It just does what you wrote.</p>
+<p>This is the question this whole course turns around: <strong>How do I speak to a computer so that it understands what I want it to do?</strong> It sounds simple. It is not. Most of the difficulty in programming, in writing a clear ticket, and even in giving a teammate good instructions comes from one fact: a computer reads what you wrote, not what you meant.</p>
+<p>After this lesson you will be able to define computational thinking in your own words. You will be able to explain what it means to say a computer "takes you literally". You will be able to give an everyday example and an IT example of an instruction going wrong because of ambiguity, and you will see that the fault sits in the instruction, not in the machine.</p>
+<h2 id="what-is-computational-thinking">What is computational thinking?</h2>
+<p>Computational thinking is a way of thinking about problems so that a computer — or anyone following instructions literally — can solve them. It is the thinking <em>behind</em> programming. It is the part you do before you touch any code. When a baker writes a recipe so that a beginner can follow it without asking questions, that baker is doing computational thinking. When a help-desk worker writes a clear ticket so a colleague in a different time zone can fix the issue without a meeting, that is computational thinking too.</p>
+<p>People who study this field often talk about four "pillars" of computational thinking: decomposition, pattern recognition, abstraction, and algorithms. Each of these gets its own lesson later in the course, so do not try to memorise them now. For Lesson 1, only one idea matters: the computer will do what your instruction actually says.</p>
+<blockquote class="pause"><p><strong>Pause for a moment:</strong> Think of an instruction you gave today — to a friend, a sibling, a teacher, a chat bot. Did the other person do exactly what you meant? If not, was the problem in their head, or in your words?</p>
+</blockquote>
+<h2 id="a-computer-takes-you-literally">A computer takes you literally</h2>
+<p>Imagine you tell your little brother, "Make me a sandwich. Put the cheese between two slices of bread." He brings back two slices of bread balanced on top of a block of cheese. From his point of view, the cheese is between the slices: one slice is above the cheese, one is below. You meant the cheese on the inside, sandwich-style. He read the words the way they were written.</p>
+<p>Or imagine you give a visitor directions to the city library. You say, "Turn left at the big tree." There are three big trees on that street. The visitor stops at the first one, turns left, and ends up at a car park. The directions were not wrong on purpose. They were just open to more than one reading.</p>
+<p>A computer behaves like that little brother and that visitor, every time, with no exceptions. It cannot pick the "obvious" reading because it does not know which reading is obvious to you. It reads the instruction and does that thing.</p>
+<p>The same pattern shows up the moment you start using IT tools. You type <code>pyhton tutorial</code> into a search box because you are in a hurry. The search engine looks for pages about <code>pyhton</code>, finds almost nothing useful, and returns a thin set of results — maybe even a polite "Did you mean: python tutorial?" The search did not fail; it did exactly what you asked. The typo was in your instruction.</p>
+<p>Or you tell a program to open the file <code>report-final.docx</code> and the program says <em>file not found</em>. You stare at the screen, sure the file is there. It is — but it is in a folder you forgot you moved it to last week. The path you gave is wrong. The program is not lying. It looked exactly where you pointed it, and there was no file there.</p>
+<blockquote class="pause"><p><strong>Pause for a moment:</strong> When an app does "the wrong thing", is it broken, or did it follow your instruction exactly? How would you tell the difference?</p>
+</blockquote>
+<h2 id="ambiguity-lives-in-the-instruction-not-in-the-computer">Ambiguity lives in the instruction, not in the computer</h2>
+<p>A lot of people, when an app behaves in an annoying way, say things like "this computer is so dumb" or "this thing has no idea what I want." It is a normal reaction. It is also the wrong picture of what is happening.</p>
+<p>The computer is not dumb. The computer is <em>literal</em>. Those are different things. A dumb listener cannot understand even a clear instruction. A literal listener understands the instruction word for word and does exactly what those words say. If the words can mean two things, a literal listener will pick one of them, and you do not always get to choose which.</p>
+<p>This is the conceptual pivot of the lesson, and it is worth saying slowly: when a computer "does the wrong thing", the bug is almost always in the <em>instruction</em>, not in the <em>interpreter</em>. Ambiguity is a property of what you wrote, the way weight is a property of a backpack. The backpack is not lazy because it is heavy; it is heavy because of what you put in it.</p>
+<p>This reframe matters because it changes what you do next. If you think the computer is dumb, the only move is to complain. If you accept that the instruction was ambiguous, you have a new job: find the ambiguous part and rewrite it. That second move is what an IT professional spends their day doing — sometimes in code, sometimes in tickets, sometimes in messages to other humans.</p>
+<h2 id="why-this-matters-for-an-it-professional">Why this matters for an IT professional</h2>
+<p>In an IT job you write instructions all day, even when you are not writing code. You write tickets for colleagues. You write update notes for end users. You write search queries when you debug. You write small scripts that automate tasks. Every one of those is an instruction that someone — a human or a machine — will follow literally enough to get something wrong if you were not careful.</p>
+<p>The skill of writing an instruction that cannot be misread is not glamorous, but it is the skill that separates a frustrated junior from a calm senior. Senior IT people do not write magic code; they write instructions that leave no room for guessing. The earlier you start practicing this, the cheaper it is. By the end of this course you will have practiced it in everyday language, in process descriptions, in pseudocode, and finally in JavaScript. The thinking is the same at every layer.</p>
+<h2 id="summary">Summary</h2>
+<p>This lesson set up the question the whole course is built around: <em>How do I speak to a computer so that it understands what I want it to do?</em> You saw that a computer reads instructions literally — like a sibling making a "sandwich" with the bread on the outside, or a search engine returning nothing useful for <code>pyhton tutorial</code>. You also saw the most important reframe of the lesson: when something goes wrong, the ambiguity is almost always in the instruction, not in the computer. That is good news, because instructions are something you can rewrite.</p>
+<p>In the next lesson you will meet the word <em>algorithm</em>. An algorithm is just a clear sequence of literal steps that gets a job done — and you have already been writing them today without calling them that.</p>
+  </div>
+</section>
+
+<section class="lesson-section" id="sec-tasks">
+  <header class="section-header">
+    <div class="section-eyebrow">Part 03 · student/lesson-01/student-tasks.md</div>
+    <h1 class="section-title">Student tasks</h1>
+  </header>
+  <div class="section-body">
+    <h1 id="student-tasks-speaking-to-a-computer">Student tasks — Speaking to a computer</h1>
+<blockquote>
+<p>📌 <strong>You do not have to do both.</strong> Pick Task 1.1 at minimum — it hits the heart of the lesson. Add Task 1.2 if you have time and energy.</p>
+</blockquote>
+<h2 id="task-11-the-literal-robot-game-recommended">Task 1.1 — The literal robot game<span class="pill pill-recommended">RECOMMENDED</span></h2>
+<p><strong>Goal:</strong> You will feel, in your own hands, how a literal follower exposes ambiguity in an instruction. This is the lesson's main skill, and it sets up Task AT1 (which lands at the end of Week 2).</p>
+<h3 id="steps">Steps</h3>
+<h4 id="step-1-write-your-instructions">Step 1 — Write your instructions</h4>
+<p>Pick a small everyday task you do without thinking: making a cup of tea, logging in to the school portal, sending a message on Discord, putting on a hoodie. Avoid anything with hidden steps you cannot describe out loud (do not pick "ride a bike"). Write 6–10 steps in plain English, numbered. Write them yourself — do not use software.</p>
+<h4 id="step-2-find-a-literal-follower">Step 2 — Find a literal follower</h4>
+<p>Find one person who will play the role of the literal computer. A classmate is best, a family member also works. If nobody is available, record a short video of yourself doing the task while reading each step out loud.</p>
+<p>Tell your follower one rule: <strong>they must do exactly what each step says, and nothing more.</strong> If the step says "put the bag in the cup", they put the whole bag, label and wrapper included, in the cup. No clarifying questions, no common sense.</p>
+<h4 id="step-3-observe-and-take-notes">Step 3 — Observe and take notes</h4>
+<p>Find at least three places where the literal follower got stuck or did something you did not expect. For each one, write down the step number, the exact ambiguous word or phrase, what the follower did, and what you actually meant. If your follower never gets stuck, your instructions are hiding assumptions you share — try them on someone who does not know the task.</p>
+<h4 id="step-4-rewrite-and-re-test">Step 4 — Rewrite and re-test</h4>
+<p>Rewrite the steps to remove the ambiguities you found. Run the same task with the same follower again and note where they still got stuck, if anywhere.</p>
+<h4 id="step-5-short-reflection">Step 5 — Short reflection</h4>
+<p>Write 3–5 sentences. Which kind of ambiguity was hardest to remove — a vague word, a missing step, or a hidden assumption? After rewriting, did your instructions feel "too detailed", and why? How is this similar to speaking to a computer?</p>
+<blockquote class="tip"><p><strong>Tip:</strong> You do not hand this in, but keep your notes. You will reuse this experience when Assessed Task AT1 lands at the end of Week 2.</p>
+</blockquote>
+<hr />
+<h2 id="task-12-spot-the-ambiguity-deepening">Task 1.2 — Spot the ambiguity<span class="pill pill-deepening">DEEPENING</span></h2>
+<blockquote class="note"><p><strong>This is an optional deepening task.</strong> Do it if you want to practice spotting ambiguity in instructions other people wrote, before you have to fix it in your own work.</p>
+</blockquote>
+<p><strong>Goal:</strong> You will train your eye to find the ambiguous word in a sentence quickly, the way an IT professional learns to spot the unclear line in a ticket.</p>
+<h3 id="steps_1">Steps</h3>
+<h4 id="step-1-read-the-instructions">Step 1 — Read the instructions</h4>
+<p>Below are six short instructions. Each one is the kind of message that could realistically arrive in a school group chat or a workplace message. Each one contains at least one ambiguity.</p>
+<ol>
+<li>"Save the file in the usual place."</li>
+<li>"Run the script after lunch."</li>
+<li>"Make the button bigger."</li>
+<li>"Send the report to the team."</li>
+<li>"Restart the laptop when you are done."</li>
+<li>"Use the new password for everything from now on."</li>
+</ol>
+<h4 id="step-2-annotate-on-your-own">Step 2 — Annotate on your own</h4>
+<p>For each instruction, write two short notes: <strong>what is ambiguous</strong> (point at the exact word or phrase) and <strong>how you would make it precise</strong> (rewrite it so a literal follower could carry it out with no guessing). Do this on your own first, before touching any AI tool — the practice is what builds the skill.</p>
+<h4 id="step-3-use-an-ai-as-a-sparring-partner-optional">Step 3 — Use an AI as a sparring partner (optional)</h4>
+<p>Once you have your own annotations, you can paste them into a language model (ChatGPT, Claude, or similar) and ask it to challenge your thinking. Use a prompt like this — adjust it to fit your situation:</p>
+<pre><code>Act as my sparring partner. I am a beginner studying computational
+thinking. I just annotated these six short instructions for
+ambiguity and rewrote each one to be precise. Here is my work:
+
+[paste your annotations and rewrites here]
+
+Do not give me the &quot;correct&quot; answer. Instead, push back on my
+work. For each instruction, ask me one question that would force
+me to notice an ambiguity I missed, or to defend the precise
+rewrite I gave. If my rewrite is still ambiguous, hint at where,
+but do not fix it for me.
+</code></pre>
+<p>Read its questions. Update your annotations if you find a real gap. Do not accept whatever the AI says — it is wrong often enough to keep you on your toes.</p>
+<h4 id="step-4-short-reflection">Step 4 — Short reflection</h4>
+<p>Write 3–5 sentences. Which instruction was hardest to make precise, and why? Did one kind of ambiguity show up in more than one of the six? Did the AI find anything you missed, or did you find things it missed?</p>
+<blockquote class="tip"><p><strong>Tip:</strong> Keep your notes. The "spot the ambiguous word" reflex you build here is the same reflex you will use in Lesson 3, when you stress-test your own algorithms.</p>
+</blockquote>
+  </div>
+</section>
+
+<section class="lesson-section" id="sec-vocab">
+  <header class="section-header">
+    <div class="section-eyebrow">Part 04 · student/lesson-01/vocabulary.md</div>
+    <h1 class="section-title">Vocabulary</h1>
+  </header>
+  <div class="section-body">
+    <h1 id="vocabulary">Vocabulary</h1>
+<h2 id="computational-thinking">Computational thinking</h2>
+<p>A way of thinking about problems so that they can be solved by following clear, literal instructions. It is the thinking you do <em>before</em> you write code, and it shows up in everyday work too — recipes, tickets, and step-by-step guides are all computational thinking in plain language.</p>
+<h2 id="instruction">Instruction</h2>
+<p>A single step that a person or a computer can follow. A good instruction is small enough to do in one move, and clear enough that two different followers would do the same thing.</p>
+<h2 id="literal-interpretation">Literal interpretation</h2>
+<p>Doing exactly what is written, without filling in unstated assumptions. A computer always interprets literally. A literal human follower can be used as a check on whether your instructions are precise enough.</p>
+<h2 id="ambiguity">Ambiguity</h2>
+<p>A property of an instruction that lets it be read in more than one reasonable way. Ambiguity is in the <em>instruction</em>, not in the reader. "Turn left at the big tree" is ambiguous when there are three big trees.</p>
+<h2 id="precision">Precision</h2>
+<p>The quality of an instruction that leaves no room for ambiguity. A precise instruction has only one reasonable reading, so a literal follower and a thoughtful follower do the same thing.</p>
+<h2 id="computer-as-instruction-follower">Computer (as instruction-follower)</h2>
+<p>A machine that follows the instructions it is given, literally and without judgement. It does not know what you meant; it knows what you wrote.</p>
+<h2 id="programmer">Programmer</h2>
+<p>A person who writes instructions for a computer. Programmers spend more time thinking about how to phrase the instruction precisely than they spend typing.</p>
+<h2 id="user">User</h2>
+<p>The person who uses a piece of software. Users also give instructions to the computer — every click, every search query, every form they fill in is an instruction.</p>
+<h2 id="algorithm-looking-ahead-central-topic-of-lesson-2">Algorithm — <em>looking ahead, central topic of Lesson 2</em></h2>
+<p>A sequence of clear, literal steps that solves a problem or completes a task. A recipe is an algorithm. Your morning routine is an algorithm. You will define this term properly in the next lesson.</p>
+  </div>
+</section>
+
+<section class="lesson-section" id="sec-teacher">
+  <header class="section-header">
+    <div class="section-eyebrow">Part 05 · teacher/lesson-01/teacher-materials.md</div>
+    <h1 class="section-title">Teacher materials</h1>
+  </header>
+  <div class="section-body">
+    <h1 id="teacher-materials-lesson-1">Teacher materials — Lesson 1</h1>
+<h2 id="learning-objectives-for-this-lesson">Learning objectives for this lesson</h2>
+<p>Lesson 1 is capped at the <em>Remembering</em> and <em>Understanding</em> stages of Bloom's taxonomy. No student is asked to apply, build, design, or evaluate yet. Keep your classroom moves consistent: ask students to define, explain, and identify — not to create or design.</p>
+<ol>
+<li>Students can <strong>define</strong> computational thinking in their own words as a way of thinking that produces instructions a literal follower could carry out. <em>(Remembering / Understanding.)</em></li>
+<li>Students can <strong>explain</strong> that a computer interprets instructions literally, and that "literal" is not the same as "stupid". <em>(Understanding.)</em></li>
+<li>Students can <strong>give</strong> at least one everyday example and one IT example of an instruction going wrong because of ambiguity. <em>(Understanding.)</em></li>
+<li>Students can <strong>recognize</strong> that ambiguity is a property of the instruction, not a fault of the computer. <em>(Understanding.)</em></li>
+<li>Students can <strong>identify</strong> the core vocabulary — <em>instruction, literal interpretation, ambiguity, precision</em> — when they meet these words in a short text. <em>(Remembering.)</em></li>
+</ol>
+<p>Plant the word <em>algorithm</em> in the closing minute.</p>
+<h2 id="common-misconceptions">Common misconceptions</h2>
+<p>These come up almost every time. Each has a short correction you can use verbatim.</p>
+<h3 id="misconception-1-the-computer-is-stupid-dumb">Misconception 1: "The computer is stupid / dumb."</h3>
+<p><strong>Correction:</strong> The computer is <em>literal</em>, which is different from stupid. A literal follower does exactly what the instruction says. The mistake is in the instruction. Reframe out loud every time a student says "the computer is dumb" — replace it with "the instruction was ambiguous". Students pick up the habit faster than you expect.</p>
+<h3 id="misconception-2-computational-thinking-is-just-programming">Misconception 2: "Computational thinking is just programming."</h3>
+<p><strong>Correction:</strong> Computational thinking is the thinking <em>behind</em> programming. It also applies to writing a recipe, telling a colleague how to set up a workstation, or drafting a help-desk ticket. Code is just one place this thinking ends up.</p>
+<h3 id="misconception-3-algorithms-are-something-only-computer-scientists-write">Misconception 3: "Algorithms are something only computer scientists write."</h3>
+<p><strong>Correction:</strong> Every recipe is an algorithm. Every set of route instructions is an algorithm. The word sounds technical, but students have produced these artefacts hundreds of times. (This is also a preview for Lesson 2 — keep it light.)</p>
+<h3 id="misconception-4-if-the-computer-did-the-wrong-thing-it-must-be-broken">Misconception 4: "If the computer did the wrong thing, it must be broken."</h3>
+<p><strong>Correction:</strong> Almost always the computer did what it was told. The first move is not "fix the computer" but "re-read the instruction assuming it is ambiguous". This habit is the entry point to debugging, which the course returns to in Lesson 18 and Lesson 24.</p>
+<h3 id="misconception-5-being-precise-just-means-being-long-winded">Misconception 5: "Being precise just means being long-winded."</h3>
+<p><strong>Correction:</strong> A precise instruction has only one reasonable reading. Sometimes that means more words, sometimes fewer, often a different word. Long "to be safe" instructions usually hide ambiguity in more text.</p>
+<h2 id="teacher-facilitation-guide">Teacher facilitation guide</h2>
+<h3 id="before-class">Before class</h3>
+<p>Pick three or four short, deliberately ambiguous instructions to act out. Good options: <em>"Put the book on the shelf"</em>, <em>"Save the file in the usual place"</em>, <em>"Turn it off and on again."</em> Have one prop on the table. Decide which one you will use for the warm-up so it feels rehearsed but not scripted.</p>
+<p>If your school has an IT setting where literal interpretation caused a real issue (an email filter that flagged the wrong message, a broken file path), prepare a two-minute story. It lands harder than a generic example.</p>
+<p>Skim the student files. The self-study uses the sandwich example and <code>pyhton tutorial</code>; pick <em>different</em> examples for class so students hear the same idea twice in different clothes.</p>
+<h3 id="during-class">During class</h3>
+<p>Open with the literal-robot demonstration. Have a student give you an instruction. Follow it as literally as you can. The first time, the class laughs; the second time, they start spotting the ambiguous word before you act on it.</p>
+<p>Use the board for an "Everyday | IT" two-column list. Alternate the columns. Never let the IT column grow before the everyday column has at least three entries.</p>
+<p>Ask before you tell. When a student says "the computer is stupid", do not correct them directly — ask "what did you tell it to do?" and let them walk themselves to the reframe.</p>
+<p>By the end of class you want to hear <em>ambiguous</em>, <em>literal</em>, <em>precise</em> in student mouths. If you hear <em>stupid</em> or <em>broken</em>, gently swap in the precise word and keep moving.</p>
+<h3 id="answers-to-common-student-questions">Answers to common student questions</h3>
+<p><strong>Q: "Is Google an algorithm?"</strong>
+A: Search is built on algorithms — many of them. The part that decides "show this result before that one" is an algorithm in the sense we will define next lesson. Answer "yes" without over-promising; Lesson 2 will make it cleaner.</p>
+<p><strong>Q: "Why doesn't autocorrect understand me?"</strong>
+A: Autocorrect does not understand anything. It guesses, based on the letters you typed, which word in its dictionary you probably meant. It is a literal system with a guess on top — matching, not understanding.</p>
+<p><strong>Q: "Is this going to be on the assessed task?"</strong>
+A: The vocabulary here — <em>instruction</em>, <em>literal</em>, <em>ambiguity</em>, <em>precision</em> — comes back through the whole course. AT1 lands at the end of Week 2 and measures the same skill you practice in Task 1.1, so keep your notes.</p>
+<p><strong>Q: "Will we write code today?"</strong>
+A: No. Code comes in Week 7. The first six weeks build the thinking that makes code possible.</p>
+<h2 id="a-realistic-90-minute-lesson-structure">A realistic 90-minute lesson structure</h2>
+<p>The slot times below sum to 90 minutes. Adjust the activity slot if pairs are slow to form. Do not skip the debrief — it is where the conceptual pivot happens.</p>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Slot</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–10 min</td>
+<td>Warm-up</td>
+<td>Teacher acts out one deliberately ambiguous instruction (book on shelf, water bottle on the table, etc.) literally. Class points out the ambiguity. End by writing the central question on the board: <em>How do I speak to a computer so that it understands what I want it to do?</em></td>
+</tr>
+<tr>
+<td>10–25 min</td>
+<td>Instructor input</td>
+<td>Short, prose-style mini-lecture: define computational thinking in one sentence, explain that the computer is literal (not stupid), give one everyday and one IT example you did not steal from the self-study file. Do not introduce algorithms formally — preview only.</td>
+</tr>
+<tr>
+<td>25–55 min</td>
+<td>Pair activity</td>
+<td>Students draft a 6–10 step instruction for a small everyday task (this is the start of Task 1.1). Their partner follows the instruction <em>literally</em>. Pairs swap roles after 12–13 minutes. Walk the room; listen for the moment a pair gets stuck and call attention to it.</td>
+</tr>
+<tr>
+<td>55–75 min</td>
+<td>Whole-class debrief</td>
+<td>Build the "Everyday</td>
+</tr>
+<tr>
+<td>75–85 min</td>
+<td>Vocabulary anchoring</td>
+<td>Spend 10 minutes on the four core terms — <em>instruction, literal interpretation, ambiguity, precision</em>. Use the board examples to ground each definition. Mention <em>algorithm</em> as next lesson's word; do not unpack it.</td>
+</tr>
+<tr>
+<td>85–90 min</td>
+<td>Reflection + preview</td>
+<td>Exit prompt: each student writes one ambiguous instruction they used today. Collect or just read aloud. Preview Lesson 2 — algorithms in everyday life — in one sentence.</td>
+</tr>
+</tbody>
+</table>
+<p>Total: 90 minutes.</p>
+<h2 id="assessment-tips">Assessment tips</h2>
+<p>Lesson 1 is formative only. No marks, no rubric. You are checking that the conceptual ground is solid before Lesson 2 lands on top of it.</p>
+<p><strong>Quick check 1 — exit ticket.</strong> Ask every student to write one sentence on an index card: <em>"One instruction I gave today that someone could read in more than one way."</em> Two minutes of reading after class tells you who still defaults to "the computer is dumb" versus who has moved to "the instruction was ambiguous".</p>
+<p><strong>Quick check 2 — temperature read.</strong> During the pair activity, listen for one phrase: when a partner gets stuck, do students say "you did it wrong" or "my instruction was unclear"? The second is the goal. If you hear mostly the first, spend an extra two minutes on the reframe in the debrief.</p>
+<p><strong>Quick check 3 — language audit in the debrief.</strong> Track how many times <em>ambiguous</em>, <em>literal</em>, <em>precise</em> come out of student mouths. If at least a quarter of the class uses them correctly, the lesson has landed. If not, do a five-minute reset at the start of Lesson 2.</p>
+<p>No summative assessment in this lesson. Save grading energy for AT1.</p>
+  </div>
+</section>
+
+</body>
+</html>
